@@ -1,11 +1,205 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-    </head>
-    <body>
-      <script src="http://localhost:8080/webpack-dev-server.js"></script>
-      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8"></script>
-    </body>
+<head>
+	<link rel="stylesheet" href="assets/styles/index.scss">
+	<title>Tic Tac Toe</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body onload="startGame();">
+<center>
+<h1>WELCOME</h1>
+<p>to</p>
+<h2>TIC - TAC - TOE!</h2>
+
+	<br><br>
+
+	<input class = "message" type = "button" name = "message" value = "Message">
+ 	<br><br>
+
+	<table border="1">
+			<tr>
+				<td id="s1" class="Square" onclick="nextMove(this);"></td> <!--this take this tag and give that as parameter to a function-->
+				<td id="s2" class="Square" onclick="nextMove(this);"></td>
+				<td id="s3" class="Square" onclick="nextMove(this);"></td>
+			</tr>
+			<tr>
+				<td id="s4" class="Square" onclick="nextMove(this);"></td>
+				<td id="s5" class="Square" onclick="nextMove(this);"></td>
+				<td id="s6" class="Square" onclick="nextMove(this);"></td>
+			</tr>
+			<tr>
+				<td id="s7" class="Square" onclick="nextMove(this);"></td>
+				<td id="s8" class="Square" onclick="nextMove(this);"></td>
+				<td id="s9" class="Square" onclick="nextMove(this);"></td>
+			</tr>
+		</table><br>
+
+	<table>
+		<tr><td><input type=text size=5 name=you></td><td>Player 1</td></tr>
+		<tr><td><input type=text size=5 name=computer></td><td>Player 2</td></tr>
+		<tr><td><input type=text size=5 name=ties></td><td>Ties</td></tr>
+	</table>
+	<br>
+
+		<input class = "restart" type="button" value="New Game" onclick="history.go(0)">
+		<input class = "game-help" type=button value="Game Help" onclick="help();">
+	<br><br>
+
+	<audio src="./assets/sounds/imperial_march.mp3" controls loop="infinite">
+	<p>If you are reading this, it is because your browser does not support the audio element.</p>
+	</audio>
+</center>
+
+
+
+		<script src="http://localhost:8080/webpack-dev-server.js"></script>
+    <script src="vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
+    <script src="bundle.js" type="text/javascript" charset="utf-8"></script>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="assets/styles/index.scss">
+	<title>Tic Tac Toe</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body onload="startGame();">
+<center>
+<h1>WELCOME</h1>
+<p>to</p>
+<h2>TIC - TAC - TOE!</h2>
+
+	<br><br>
+
+	<input class = "message" type = "button" name = "message" value = "Message Board">
+ 	<br><br>
+
+	<table border="1">
+			<tr>
+				<td id="s1" class="Square" onClick="nextMove(this);"></td>
+				<td id="s2" class="Square" onClick="nextMove(this);"></td>
+				<td id="s3" class="Square" onClick="nextMove(this);"></td>
+			</tr>
+			<tr>
+				<td id="s4" class="Square" onClick="nextMove(this);"></td>
+				<td id="s5" class="Square" onClick="nextMove(this);"></td>
+				<td id="s6" class="Square" onClick="nextMove(this);"></td>
+			</tr>
+			<tr>
+				<td id="s7" class="Square" onClick="nextMove(this);"></td>
+				<td id="s8" class="Square" onClick="nextMove(this);"></td>
+				<td id="s9" class="Square" onClick="nextMove(this);"></td>
+			</tr>
+		</table><br>
+
+	<table>
+		<tr><td><input type=text size=5 name=you></td><td>Player 1</td></tr>
+		<tr><td><input type=text size=5 name=computer></td><td>Player 2</td></tr>
+		<tr><td><input type=text size=5 name=ties></td><td>Ties</td></tr>
+	</table>
+	<br>
+
+		<input class = "restart" type="button" value="New Game" onClick="history.go(0)">
+		<input class = "game-help" type=button value="Game Help" onClick="help();">
+	<br><br>
+
+	<audio src="../assets/sounds/imperial_march.mp3" controls loop="infinite">
+	<p>If you are reading this, it is because your browser does not support the audio element.</p>
+	</audio>
+</center>
+
+
+
+
+
+
+
+
+<!--
+<form name=game>
+	<table border=1>
+		<td>
+			<table border=1>
+				<!-- FIRST ROLL -->
+<!--				<tr>
+					<td class = b1 id="Top-Left"></td>
+					<td class = b2  id="Top-Center"></td>
+					<td class = b3  id="Top-Right"></td>
+				</tr>
+				<!-- SECOND ROLL -->
+<!--				<tr>
+					<td class = b4  id="Middle-Left"></td>
+					<td class = b5  id="Middle-Center"></td>
+					<td class = b6  id="Middle-Right"></td>
+				</tr>
+				<!-- THIRD ROLL -->
+<!--				<tr>
+					<td class = b7  id="Bottom-Right"></td>
+					<td class = b8  id="Bottom-Center"></td>
+					<td class = b9  id="Bottom-Right"></td>
+				</tr>
+			</table>
+		</td>
+		<table>
+			<tr><td><input type=text size=5 name=you></td><td>Luke Skywalker</td></tr>
+			<tr><td><input type=text size=5 name=computer></td><td>Lord Darth Vader</td></tr>
+			<tr><td><input type=text size=5 name=ties></td><td>Ties</td></tr>
+		</table>
+	</table>
+	<input type=button value="Play Again" onClick="playAgain();">
+	<input class="game-help" type=button value="Game Help">
+</form>
+-->
