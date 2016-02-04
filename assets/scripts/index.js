@@ -9,91 +9,233 @@ require('./example');
 require('../styles/index.scss');
 
 
+let playGame = {
+   'player': '',
+   'board': ['','','','','','','','',''],
+   'turn': 0,
+   'player1Wins': 0,
+   'player2Wins': 0,
+   'ties': 0
+};
 
-
-
-
-// START GAME
-let setMessage;
-
-// RESTART
-$('.new-game').on('click', function(){
-});
-
-$('.game-help').on('click', function(){alert("Welcome to Tic-Tac-Toe!  You play as the Luke Skywalker and the computer is the Lord Darth Vader.  Select the square you want to put Luke into by clicking them.  You cannot occupy a square that is already occupied. The first player to get three squares in a row wins.  Good Luck!!");
-});
-
-
-    let startGame = function() {
-      document.turn = "X";
-      setMessage(document.turn + " get to start.");  // message saying X to start
-    };
-    // Function setMessage, tell who turn is it....
-    let getMessage = function(msg) {
-      document.getElementById("message").innerText = msg;
-    };
-    // function nextMove
-    let nextMove = function(square) {
-      if (square.innerText === "") { // if square equals to empty value (no move yet)
-        square.innerText = document.turn; // then let it moves there
-        switchTurn(); // this will call function switchTurn below into work
+let playerMove = function () {
+  $('.Square').on('click', function () {
+    if ($(this).html() === '') {
+      if (playGame.turn % 2 === 0) {
+        $(this).text('X');
+        playGame.player = 'X';
+        console.log(playGame.player);
       } else {
-        setMessage("That square is already used.");
+        $(this).text('O');
+        playGame.player = 'O';
+        console.log(playGame.player);
       }
-    };
-    // Function switchTurn, will be called above
-    let switchTurn = function() {
+    }
+    checkWinner();
+    playGame.turn++;
+  });
+};
 
-      if (checkForWinner(document.turn)) {								//if we have a winner
-        setMessage("Congratulations, " + document.turn + "! You win!");	// set this message
-      } else if  (document.turn === "X") {								// else we switch the current player
-        document.turn = "O";
-        setMessage("It's " + document.turn + "'s turn!");// this will get message to both, X or O
-      } else {
-        document.turn = "X";
-        setMessage("It's " + document.turn + "'s turn!");// this will get message to both, X or O
-      }
-    };
-    //Function checkForWinner,  checking all combinations for possible winning.
-    let checkForWinner = function(move) {
-      var result = false;
-      if (checkRow(1, 2, 3, move) ||
-        checkRow(4, 5, 6, move) ||
-        checkRow(7, 8, 9, move) ||
-        checkRow(1, 4, 7, move) ||
-        checkRow(2, 5, 8, move) ||
-        checkRow(3, 6, 9, move) ||
-        checkRow(1, 5, 9, move) ||
-        checkRow(3, 5, 7, move))
-        {
+let clearBoard = function () {
+  $('.Square').empty();
+  playGame.turn = 0;
+};
+let winner;
 
-        result = true;
-      }
-      return result;
-    };
-    // function checkRow, if row a, b, c are true then it is true result, if not then it is false
-    let checkRow = function(a, b, c, move) {
-      var result = false;
-      if (getBox(a) === move && getBox(b) === move && getBox(c) === move) {
-        result = true;
-      }
-      return result;
-    };
-    // Function getBox
-    let getBox = function(number) {
-      return document.getElementById("s" + number).innerText; // get the element that s with whatever number there
-    };
+let updateScores = function (playGame) {
+  console.log(playGame);
+    if (winner === 'X') {
+      console.log("before playGame.player1Wins", playGame.player1Wins);
+      playGame.player1Wins++;
+      console.log("after playGame.player1Wins", playGame.player1Wins);
+    }
+    else if (winner === 'O') {
+      playGame.player2Wins++;
+    }
+    else {
+      playGame.ties++;
+    }
 
+    $('.player-1').html(playGame.player1Wins);
+    $('.player-2').html(playGame.player2Wins);
+    $('.ties').html(playGame.ties);
+  };
 
+let BoxPos = function(pos) {
+  return $('.' + pos);
+};
 
+let checkWin = function(a, b, c) {
+  if (BoxPos(a).text() === playGame.player && BoxPos(b).text() === playGame.player && BoxPos(c).text() === playGame.player) {
+  return true;
+  } else {
+  return false;
+  }
+};
 
+let checkWinner = function() {
+  if(checkWin(1, 2, 3) ||
+    checkWin(4, 5, 6) ||
+    checkWin(7, 8, 9) ||
+    checkWin(1, 4, 7) ||
+    checkWin(2, 5, 8) ||
+    checkWin(3, 6, 9) ||
+    checkWin(1, 5, 9) ||
+    checkWin(3, 5, 7)) {
+      winner = playGame.player;
+  }
+  else if (playGame.turn === 8) {
+    console.log("Tie Game!");
+  }
+  else {
+    return false;
+  }
+    updateScores(playGame);
+    clearBoard();
+  };
 
-
+  // RESTART
+  $('.restart').on('click', function() {
+  });
+  // HELP
+  $('.game-help').on('click', function() {alert("Welcome to Tic-Tac-Toe!  You play as the Luke Skywalker and the computer is the Lord Darth Vader.  Select the square you want to put Luke into by clicking them.  You cannot occupy a square that is already occupied. The first player to get three squares in a row wins.  Good Luck!!");
+  });
 
 
 $(document).ready(() => {
-  console.log('It works.');
+  playerMove();
+  clearBoard();
+  $('.sign-up').hide();
+  $('.sign-in').hide();
+  $('.sign-out').hide();
+  $('.change-password').hide();
 });
+
+
+module.exports = true;
+
+//
+//
+//
+// // Declaring Global Variables
+// let setMessage;
+// let turn = 0;
+// let square;
+// let i;
+//
+//
+//
+//
+// // RESTART
+// $('.restart').on('click', function() {
+// });
+//
+// $('.game-help').on('click', function() {alert("Welcome to Tic-Tac-Toe!  You play as the Luke Skywalker and the computer is the Lord Darth Vader.  Select the square you want to put Luke into by clicking them.  You cannot occupy a square that is already occupied. The first player to get three squares in a row wins.  Good Luck!!");
+// });
+//
+//
+//     let startGame = function() {
+//       document.turn = "X";
+//       setMessage(document.turn + " get to start.");  // prompting message of either X or O to start
+//     };
+//
+//     //Function checkForWinner,  checking all combinations for possible winning.
+//       let checkForWinner = function(move) {
+//         var result = false;
+//         if (checkRow(1, 2, 3, move) ||
+//           checkRow(4, 5, 6, move) ||
+//           checkRow(7, 8, 9, move) ||
+//           checkRow(1, 4, 7, move) ||
+//           checkRow(2, 5, 8, move) ||
+//           checkRow(3, 6, 9, move) ||
+//           checkRow(1, 5, 9, move) ||
+//           checkRow(3, 5, 7, move))
+//           {
+//           console.log("Checking for winner, work!")
+//           result = true;
+//         }
+//         return result;
+//       };
+//
+//     // function checkRow, if row a, b, c are true then it is true result, if not then it is false
+//       let checkRow = function(a, b, c, move) {
+//         var result = false;
+//         if (getBox(a) === move && getBox(b) === move && getBox(c) === move) {
+//           result = true;
+//         }
+//         return result;
+//       };
+//
+//
+// //
+//     $('.Square').on('click', function() {
+//
+//          if (turn % 2 === 0) {
+//            $(this).text('X');
+//            checkForWinner();
+//            //setMessage("X, it is your move.");
+//          } else {
+//            $(this).text('O');
+//            checkForWinner();
+//            //setMessage("X, it is your move.");
+//          }
+//          turn++;
+//          //return turn;
+//     });
+//
+//   //
+//
+//
+//   // Function setMessage, prompt who turn is it....
+//     let getMessage = function(msg) {
+//       document.getElementById("message").innerText = msg;
+//     };
+//   // function nextMove
+//     let nextMove = function(square) {
+//       if (square.innerText === "") { // if square equals to empty value (no move yet)
+//         square.innerText = document.turn; // then let it moves there
+//         switchTurn(); // this will call function switchTurn below into work
+//       } else {
+//         setMessage("That square is already used.");
+//       }
+//     };
+//   // Function switchTurn, will be called above
+//     let switchTurn = function() {
+//
+//       if (checkForWinner(document.turn)) {								//if we have a winner
+//         setMessage("Congratulations, " + document.turn + "! You win!");	// set this message
+//       } else if  (document.turn === "X") {								// else we switch the current player
+//         document.turn = "O";
+//         setMessage("It's " + document.turn + "'s turn!");// this will get message to both, X or O
+//       } else {
+//         document.turn = "X";
+//         setMessage("It's " + document.turn + "'s turn!");// this will get message to both, X or O
+//       }
+//     };
+//
+//   // Function getBox
+//     let getBox = function(number) {
+//       return document.getElementById("s" + number).innerText; // get the element that s with whatever number there
+//     };
+//
+//
+//
+//
+//
+//
+//
+//
+// $(document).ready(() => {
+//   console.log('It works.');
+//   startGame();
+//   getMessage();
+//   nextMove();
+//   switchTurn();
+//   checkRow();
+//   checkForWinner();
+//
+//
+// });
 
 
 
