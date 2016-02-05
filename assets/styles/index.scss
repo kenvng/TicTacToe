@@ -2,12 +2,19 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-
-
-body {
-  background-image: image('../images/star-wars-model-girl-hd-wallpaper-1920x1080-41708.jpg');
+.header {
+  background-color: black;
+  color: white;
+   text-align: center;
+  padding: 5px;
 }
-
+.footer {
+  background-color: black;
+  color: white;
+  clear: both;
+  text-align: center;
+  padding: 5px;
+}
 
 /* HEADING 1 ANIMATION */
 h1 {
@@ -28,7 +35,7 @@ p {
     -webkit-animation:h3Animation 5s;
 }
 
-@-webkit-keyframes pAnimation{
+@-webkit-keyframes pAnimation {
 
     0%   {-webkit-transform: scale(0,0);}
 	  50% {-webkit-transform: scale(0,0);}
@@ -49,18 +56,13 @@ h2 {
     100%  { -webkit-transform: scale(0,0);}
 }
 
-.Square {
+.square {
   width: 50px;
   height: 50px;
+  border: 1px;
 	text-align: center;
 	font-size: 18pt;
   font-weight: bold;
   font-family: Verdana;
   color: black;
-}
-
-.message {
-  width: 150px;
-  height: 20px;
-  text-align: center;
 }

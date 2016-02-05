@@ -9,99 +9,109 @@
 <body>
 <center>
 
-	<!-- SIGN UP -->
-	      <form id="sign-up">
-	        <p>Sign up!</p>
-	        <label>E-mail
-	          <input type="text" name="credentials[email]" value="">
-	        </label>
-					<label>Password
-						<input type="password" name="credentials[password]" value="">
-					</label>
-	        <input type="submit" name="submit" value="Sign Up">
-	      </form>
-	<br>
+<!-- HEADER -->
+	<div class="header">
+		<h1>WELCOME</h1>
+		<p>to</p>
+		<h2>TIC - TAC - TOE!</h2>
+	</div>
 
-	<!-- SIGN IN -->
-	      <form id="sign-in">
-	        <p>Sign In!</p>
-	        <label>E-mail
-	          <input name="credentials[email]" type="text" value="an@example.email">
-	        </label>
-	        <label>Password
-	          <input name="credentials[password]" type="password" value="an example password">
-	        </label>
-	        <input type="submit" name="submit" value="Sign In">
-	      </form>
-	<br>
+<!-- NAV BAR -->
+	<div id="nav">
 
-	<!-- SIGN OUT -->
-				<form id="sign-out">
-				  <p>Sign Out!</p>
-				  	<input type="submit" name="submit" value="Sign Out">
-				</form>
-	<br>
+		<!-- SIGN UP -->
+		  <form id="sign-up">
+		    <label>E-mail
+		      <input type="text" name="credentials[email]" value="">
+		    </label>
+				<label>Password
+					<input type="password" name="credentials[password]" value="">
+				</label>
+		    	<input type="submit" name="submit" value="Sign Up">
+		  </form>
 
-	<!-- CHANGE PASSWORD -->
-	      <form id="change-password">
-	        <p>Change Password!</p>
-	        <label>Old Password
-	          <input type="old-password" name="passwords[old]" value="">
-	        </label>
-	        <label>New Password
-	          <input type="new-password" name="passwords[new]" value="">
-	        </label>
-	          <input type="submit" name="submit" value="Change Password">
-	      </form>
-	<br>
+		<br>
 
-<h1>WELCOME</h1>
-<p>to</p>
-<h2>TIC - TAC - TOE!</h2>
+		<!-- SIGN IN -->
+
+		      <form id="sign-in">
+		        <label>E-mail
+		          <input name="credentials[email]" type="text" value="">
+		        </label>
+		        <label>Password
+		          <input name="credentials[password]" type="password" value="">
+		        </label>
+		        <input type="submit" name="submit" value="Sign In">
+		      </form>
+
+		<br>
+
+		<!-- CHANGE PASSWORD -->
+
+		      <form id="change-password">
+		        <label>Old Password
+		          <input type="old-password" name="passwords[old]" value="">
+		        </label>
+		        <label>New Password
+		          <input type="new-password" name="passwords[new]" value="">
+		        </label>
+		          <input type="submit" name="submit" value="Change Password">
+		      </form>
+
+		<!-- SIGN OUT -->
+		<div class="sign-out">
+					<form id="sign-out">
+							<input type="submit" name="submit" value="Sign Out">
+					</form>
+		</div>
+
 	<br><br>
-	<input class = "message" type = "button" name = "message" value = "Message">
-	<br>
-	<span id="player_name" class = "message"></span>make your move<span id="player_mark"></span>
+	<input class = "message" type = "button" name = "whoTurn" value = "Turn: Player 1">
  	<br><br>
+		<table class="game-board">
+			<tr>
+				<td id="s" class="square 1"></td>
+				<td id="s" class="square 2"></td>
+				<td id="s" class="square 3"></td>
+			</tr>
+			<tr>
+				<td id="s" class="square 4"></td>
+				<td id="s" class="square 5"></td>
+				<td id="s" class="square 6"></td>
+			</tr>
+			<tr>
+				<td id="s" class="square 7"></td>
+				<td id="s" class="square 8"></td>
+				<td id="s" class="square 9"></td>
+			</tr>
+		</table>
+			<br>
 
-	<table border="1">
-			<tr>
-				<td id="s1" class="top-left Square 1"></td> <!--this take this tag and give that as parameter to a function-->
-				<td id="s2" class="top-center Square 2"></td>
-				<td id="s3" class="top-right Square 3"></td>
-			</tr>
-			<tr>
-				<td id="s4" class="middle-left Square 4"></td>
-				<td id="s5" class="middle-center Square 5"></td>
-				<td id="s6" class="middle-right Square 6"></td>
-			</tr>
-			<tr>
-				<td id="s7" class="bottom-left Square 7"></td>
-				<td id="s8" class="bottom-center Square 8"></td>
-				<td id="s9" class="bottom-right Square 9"></td>
-			</tr>
-		</table><br>
-
-	<table>
-		<tr><td><input class="player-1 player1Wins" type=text size=5 name=player-1></td><td>Player 1</td></tr>
-		<tr><td><input class="player-2 player1Wins" type=text size=5 name=player-2></td><td>Player 2</td></tr>
+		<tr><td><input class="player-1 playgame.player1Wins" type=text size=5 name=player-1></td><td>Player 1</td></tr>
+		<tr><td><input class="player-2 playgame.player1Wins" type=text size=5 name=player-2></td><td>Player 2</td></tr>
 		<tr><td><input class="ties " type=text size=5 name=ties></td><td>Ties</td></tr>
-	</table>
-	<br>
 
+	<br>
+	<table>
 		<input class = "restart" type="button" value="New Game" onclick="history.go(0)">
 		<input class = "game-help" type=button value="Game Help" onclick="help();">
+	</table>
 	<br><br>
 
 	<audio src="./assets/sounds/imperial_march.mp3" controls loop="infinite">
 	<p>If you are reading this, it is because your browser does not support the audio element.</p>
 	</audio>
-</center>
 
 
+
+<!-- FOOTER -->
+<div class="footer">
+Copyright © GA
+</div>
 
 		<script src="http://localhost:8080/webpack-dev-server.js"></script>
     <script src="vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
     <script src="bundle.js" type="text/javascript" charset="utf-8"></script>
+		</center>
 </body>
 </html>
