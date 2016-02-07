@@ -1,4 +1,8 @@
- 'use strict';
+'use strict';
+
+ // DO NOT REMOVE ABOVE LINES - bootstrap RELATIED //
+ // DO NOT REMOVE ABOVE LINES - bootstrap RELATIED //
+ // DO NOT REMOVE ABOVE LINES - bootstrap RELATIED //
 
 
  const myApp = {
@@ -9,7 +13,7 @@
  $(document).ready(() => {
 
    // SIGN UP
-   $('.sign-up').on('submit', function(e) {
+   $('#sign-up').on('submit', function(e) {
      e.preventDefault();
      var formData = new FormData(e.target);
      $.ajax({
@@ -90,4 +94,12 @@
  });
 
 
- module.exports = true;
+// DO NOT REMOVE BELOW LINES - bootstrap RELATIED //
+// DO NOT REMOVE BELOW LINES - bootstrap RELATIED //
+// DO NOT REMOVE BELOW LINES - bootstrap RELATIED //
+
+module.exports = true;
+
+// DO NOT REMOVE ABOVE LINES - bootstrap RELATIED //
+// DO NOT REMOVE ABOVE LINES - bootstrap RELATIED //
+// DO NOT REMOVE ABOVE LINES - bootstrap RELATIED //

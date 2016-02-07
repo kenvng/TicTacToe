@@ -1,10 +1,73 @@
 
+// DO NOT REMOVE BELOW LINES - bootstrap RELATIED //
+// DO NOT REMOVE BELOW LINES - bootstrap RELATIED //
+// DO NOT REMOVE BELOW LINES - bootstrap RELATIED //
+
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+// DO NOT REMOVE ABOVE LINES - bootstrap RELATIED //
+// DO NOT REMOVE ABOVE LINES - bootstrap RELATIED //
+// DO NOT REMOVE ABOVE LINES - bootstrap RELATIED //
+
+// LINKS TO IMAGES:
+//  http://i.imgur.com/e5v1Ji6.jpg    // this background siths&jedis
+//  http://i.imgur.com/M9XgQre.jpg    // this background sith
+//  http://i.imgur.com/EBLcwkD.jpg    // this background sw girl
+//  http://i.imgur.com/saCusgO.jpg    // tictactoe piece luke
+//  http://i.imgur.com/vUgkS8M.jpg    // tictactoe piece vader
+//  http://i.imgur.com/1F1GaNF.jpg    // tictactoe background piece blank
+
+$background-image: background-image;
+$background-color: #000000; // #ffffff (white), #000000 (black)
+$font-color: #ffffff;
+
+body {
+
+  background-image: url("http://i.imgur.com/e5v1Ji6.jpg");
+  background-color: $background-color;
+  background-repeat: no-repeat;
+  background-position: top center;
+  // background-size: cover;
+  background-attachment: fixed;
+  color: $font-color;
+}
+
+input, select, textarea {
+  color: #000000;
+}
+
+.header {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 5px;
+  text-align: center;
+}
+
+.sign-up {
+  color: #000000;
+}
+.sign-in {
+  color: #000000;
+}
+.sign-out {
+  color: #000000;
+}
+.change-password {
+  color: #000000;
+}
+
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  clear: both;
+  text-align: center;
+  padding: 5px;
+}
 
 /* HEADING 1 ANIMATION */
 h1 {
+  color: #ffffff;
     position:relative;
     -webkit-animation:h1Animation 5s;
 }
@@ -31,6 +94,7 @@ p {
 
 /* HEADING 2 ANIMATION */
 h2 {
+  color: #ffffff;
     position:relative;
     -webkit-animation:h2Animation 5s;
 }
@@ -44,31 +108,25 @@ h2 {
 }
 
 .game-board {
-  border-width: 1px;
+  border: 1px solid #000000;
 }
 
 .square {
   width: 50px;
   height: 50px;
-  border: 1px;
-  border-width: 1px;
+  border: 1px solid #000000;
+  border-color: #ffffff;
 	text-align: center;
 	font-size: 18pt;
   font-weight: bold;
   font-family: Verdana;
-  color: black;
+  color: #ffffff;
 }
 
-.header {
-  background-color: black;
-  color: white;
-   text-align: center;
-  padding: 5px;
+.restart {
+  color: #000000;
 }
-.footer {
-  background-color: black;
-  color: white;
-  clear: both;
-  text-align: center;
-  padding: 5px;
+
+.help {
+  color: #000000;
 }

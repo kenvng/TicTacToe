@@ -6,110 +6,140 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<body>
+<body id="page-body">
 <center>
 
+
 <!-- HEADER -->
-	<div class="header">
-		<h1>WELCOME</h1>
-		<p>to</p>
-		<h2>TIC - TAC - TOE!</h2>
-	</div>
+<div class="header">
+	<h1>WELCOME</h1>
+	<p>to</p>
+	<h2>TIC - TAC - TOE!</h2>
+</div>
+<br>
 
-<!-- NAV BAR -->
-	<div id="nav">
+<!-- SIGN UP -->
 
-		<!-- SIGN UP -->
-		  <form id="sign-up">
-		    <label>E-mail
-		      <input type="text" name="credentials[email]" value="">
-		    </label>
-				<label>Password
-					<input type="password" name="credentials[password]" value="">
-				</label>
-		    	<input type="submit" name="submit" value="Sign Up">
-		  </form>
+		<form id="sign-up">
+			<label>E-mail
+		  	<input type="text" name="credentials[email]" value="">
+		  </label>
+			<label>Password
+				<input type="password" name="credentials[password]" value="">
+			</label>
+		  <input class = "sign-up" type="submit" name="submit" value="Sign Up">
+		</form>
+	<br>
 
-		<br>
+<!-- SIGN IN -->
+		<form id="sign-in-">
+			<label>E-mail
+		  	<input name="credentials[email]" type="text" value="">
+		  </label>
+		  <label>Password
+		    <input name="credentials[password]" type="password" value="">
+		  </label>
+			<input class = "sign-in" type="submit" name="submit" value="Sign In">
+		</form>
+	<br>
 
-		<!-- SIGN IN -->
-		      <form id="sign-in">
-		        <label>E-mail
-		          <input name="credentials[email]" type="text" value="">
-		        </label>
-		        <label>Password
-		          <input name="credentials[password]" type="password" value="">
-		        </label>
-		        <input type="submit" name="submit" value="Sign In">
-		      </form>
+<!-- SIGN OUT -->
+		<form id="sign-out">
+			<input class = "sign-out" type="submit" name="submit" value="Sign Out">
+		</form>
+	<br>
 
-		<br>
+<!-- CHANGE PASSWORD -->
+		<form id="change-password">
+			<label>E-mail
+		    <input name="credentials[email]" type="text" value="">
+		  </label>
+		  <label>Old Password
+		    <input type="old-password" name="passwords[old]" value="">
+		  </label>
+		  <label>New Password
+		    <input type="new-password" name="passwords[new]" value="">
+		  </label>
+		  <input class = "change-password" type="submit" name="submit" value="Change Password">
+		</form>
+<br>
+<br>
 
-		<!-- CHANGE PASSWORD -->
-		      <form id="change-password">
-		        <label>Old Password
-		          <input type="old-password" name="passwords[old]" value="">
-		        </label>
-		        <label>New Password
-		          <input type="new-password" name="passwords[new]" value="">
-		        </label>
-		          <input type="submit" name="submit" value="Change Password">
-		      </form>
+<!-- DISPLAY PLAYER TURN -->
+<div class="turn">
+	<input class = "whoTurn" type = "button" name = "whoTurn" value = "Turn: Player 1">
+</div>
+<br>
 
-		<!-- SIGN OUT -->
-		<div class="sign-out">
-					<form id="sign-out">
-							<input type="submit" name="submit" value="Sign Out">
-					</form>
-		</div>
-
-	<br><br>
-	<input class = "message" type = "button" name = "whoTurn" value = "Turn: Player 1">
- 	<br><br>
+<!-- TIC-TAC-TOE GAME BOARD -->
 		<table class="game-board">
+			<!-- FIRST ROLL / TOP ROLL -->
 			<tr>
-				<td id="s" class="square"></td>
-				<td id="s" class="square"></td>
-				<td id="s" class="square"></td>
+				<td id="s" class="square 1"></td>
+				<td id="s" class="square 2"></td>
+				<td id="s" class="square 3"></td>
 			</tr>
+			<!-- SECOND ROLL / MIDDLE ROLL -->
 			<tr>
-				<td id="s" class="square"></td>
-				<td id="s" class="square"></td>
-				<td id="s" class="square"></td>
+				<td id="s" class="square 4"></td>
+				<td id="s" class="square 5"></td>
+				<td id="s" class="square 6"></td>
 			</tr>
+			<!-- THIRD ROLL / BOTTOM ROLL -->
 			<tr>
-				<td id="s" class="square"></td>
-				<td id="s" class="square"></td>
-				<td id="s" class="square"></td>
+				<td id="s" class="square 7"></td>
+				<td id="s" class="square 8"></td>
+				<td id="s" class="square 9"></td>
 			</tr>
 		</table>
-			<br>
+<br>
+<br>
 
-		<tr><td><input class="player-1 playgame.player1Wins" type=text size=5 name=player-1></td><td>Player 1</td></tr>
-		<tr><td><input class="player-2 playgame.player1Wins" type=text size=5 name=player-2></td><td>Player 2</td></tr>
-		<tr><td><input class="ties " type=text size=5 name=ties></td><td>Ties</td></tr>
+<!-- SCORE BOARD -->
+<table class = "score-board">
+	<tr><td><input class = "player-1-scores" type="text" size=5 name="player-1" value = ""></td><td>Player 1</td></tr>
+	<tr><td><input class = "player-2-scores" type="text" size=5 name="player-2" value = ""></td><td>Player 2</td></tr>
+	<tr><td><input class = "players-ties-scores" type="text" size=5 name="ties" value = ""></td><td>Ties</td></tr>
 
-	<br>
-	<table>
-		<input class = "restart" type="button" value="New Game" onclick="history.go(0)">
-		<input class = "game-help" type=button value="Game Help" onclick="help();">
-	</table>
-	<br><br>
+<!-- RESTART & HELP BUTTON -->
+	<tr>
+		<td>
+			<div class = "restart">
+				<input class="restart" type="button" value="Play Again" onclick="history.go(0)">
+			</div>
+		</td>
+		<td>
+			<div class = "help">
+				<input class="game-help" type="button" value="Game Help" onclick="help();">
+			</div>
+		</td>
+	</tr>
 
+</table>
+
+<!-- THEME MUSIC -->
 	<audio src="./assets/sounds/imperial_march.mp3" controls loop="infinite">
 	<p>If you are reading this, it is because your browser does not support the audio element.</p>
 	</audio>
 
-
-
 <!-- FOOTER -->
 <div class="footer">
-Copyright © GA
+Copyright © GA WDI
 </div>
+
+
+<!-- DO NOT REMOVE BELOW LINES -->
+<!-- DO NOT REMOVE BELOW LINES -->
+<!-- DO NOT REMOVE BELOW LINES -->
 
 		<script src="http://localhost:8080/webpack-dev-server.js"></script>
     <script src="vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
     <script src="bundle.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- DO NOT REMOVE ABOVE LINES-->
+<!-- DO NOT REMOVE ABOVE LINES -->
+<!-- DO NOT REMOVE ABOVE LINES -->
+
 		</center>
 </body>
 </html>
