@@ -73,18 +73,18 @@ let updateScores = function (playGame) {
       playGame.player1Wins++;
       console.log("after playGame.player1Wins", playGame.player1Wins);
       alert("Player 1 wins!");
-      $('.player-1-scores').text();
-      $('.player-1-scores').val();
+      // $('.player-1-scores').text(playGame.player1Wins);
+      $('.player-1-scores').val(playGame.player1Wins);
     }
     else if (winner === 'O') {
       playGame.player2Wins++;
       alert("Player 2 wins!");
-      $('.player-2-scores').html();
-      $('player-2-scores').val();
+      // $('.player-2-scores').html();
+      $('.player-2-scores').val(playGame.player2Wins);
     }
     else {
       playGame.ties++;
-      $('players-ties-scores').val();
+      $('.players-ties-scores').val(playGame.ties);
       // alert("Tie Game!"); // already in WINNING LOGIC
     }
 
@@ -120,7 +120,7 @@ let checkWinner = function() { // function checkWinner passing a parameter with 
     checkWin(3, 5, 7)) {
     winner = playGame.player;
   }
-  else if (playGame.turn === 8) {  // IF condition above NOT MET, it is a TIES
+  else if (playGame.turn === 9) {  // IF condition above NOT MET, it is a TIES
     alert("Tie Game!");            // Pop-up alert message to user of a Tie Game
   }
   else {
@@ -130,17 +130,19 @@ let checkWinner = function() { // function checkWinner passing a parameter with 
     clearBoard();
   };
 
-/// PLAYER MOVE //
+/// PLAYER TURN/MOVE //
 let playerMove = function () {
   $('.square').on('click', function () {
     if ($(this).html() === '') {
       if (playGame.turn % 2 === 0) {
         $(this).text('X');
         playGame.player = 'X';
+        $('.whoTurn').val('Turn: Player 1');
         console.log(playGame.player);
       } else {
         $(this).text('O');
         playGame.player = 'O';
+        $('.whoTurn').val('Turn: Player 2');
         console.log(playGame.player);
       }
     }
