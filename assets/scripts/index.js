@@ -137,10 +137,12 @@ let playerMove = function () {
       if (playGame.turn % 2 === 0) {
         $(this).text('X');
         playGame.player = 'X';
+        $('.whoTurn').val('Turn: Player 1');
         console.log(playGame.player);
       } else {
         $(this).text('O');
         playGame.player = 'O';
+        $('.whoTurn').val('Turn: Player 2');
         console.log(playGame.player);
       }
     }
