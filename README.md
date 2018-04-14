@@ -1,4 +1,4 @@
-<b>Tic-Tac-Toe</b>
+<b>Star Wars Tic-Tac-Toe</b>
 
 <b>User Story</b>
 
