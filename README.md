@@ -1,6 +1,6 @@
-<b>Tic-Tac-Toe<b>
+<b>Tic-Tac-Toe</b>
 
-#User Story
+<b>User Story</b>
 
 As a user, I want to the game to start with X.
 As a first user click on a square, a letter X appear in it.
